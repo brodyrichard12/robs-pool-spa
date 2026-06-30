@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rob's Pool &amp; Spa — Premium Pool Care in Corona, California</title>
+<meta name="description" content="Rob's Pool &amp; Spa delivers white-glove pool and spa care across Corona, CA — weekly cleaning, equipment repair, green-to-clean recovery, and crystal-clear tile detailing." />
+<meta name="theme-color" content="#0A2540" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Rob's Pool &amp; Spa — Premium Pool Care in Corona, CA" />
+<meta property="og:description" content="White-glove weekly pool service, spa care, and equipment repair in Corona, California." />
+<meta property="og:type" content="website" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --navy:#0A2540;
+    --navy-2:#0E3357;
+    --deep:#061A30;
+    --aqua:#38BDF8;
+    --cyan:#0EA5E9;
+    --teal:#14B8A6;
+    --gold:#F5A623;
+    --gold-2:#F97316;
+    --sky:#EAF6FE;
+    --ink:#0F2236;
+    --muted:#4A6076;
+    --line:#D8E6F2;
+    --white:#ffffff;
+    --radius:18px;
+    --shadow-sm:0 4px 18px rgba(10,37,64,.08);
+    --shadow:0 18px 50px -18px rgba(10,37,64,.35);
+    --maxw:1180px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --ease-out:cubic-bezier(.16,1,.3,1);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
+    font-feature-settings:"kern" 1,"liga" 1,"calt" 1;
+    overflow-x:hidden;
+  }
+
+  /* premium grain overlay */
+  .grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* scroll progress bar */
+  .progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);z-index:70;
+    background:linear-gradient(90deg,var(--aqua),var(--teal),var(--gold));box-shadow:0 0 12px rgba(56,189,248,.6)}
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.12;margin:0;color:var(--navy);font-weight:600;letter-spacing:-.01em}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--cyan);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
+  .section{padding:clamp(64px,9vw,120px) 0;position:relative}
+  .lead{font-size:1.05rem;color:var(--muted);max-width:60ch}
+
+  /* Buttons */
+  .btn{
+    --bg:var(--gold);--fg:#1c1205;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:15px 28px;border-radius:999px;font-weight:600;font-size:.96rem;cursor:pointer;
+    background:var(--bg);color:var(--fg);border:none;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);
+    box-shadow:0 10px 28px -8px rgba(245,166,35,.6);position:relative;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px -8px rgba(245,166,35,.7)}
+  .btn:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+  .btn--ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.35);box-shadow:none;backdrop-filter:blur(6px)}
+  .btn--ghost:hover{background:rgba(255,255,255,.16);box-shadow:none}
+  .btn--outline{background:transparent;color:var(--navy);border:1.5px solid var(--line);box-shadow:none}
+  .btn--outline:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:none}
+
+  /* ===== NAV ===== */
+  header.nav{position:fixed;inset:6px 16px auto 16px;z-index:50;transition:all .35s var(--ease)}
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+    padding:12px 14px 12px 22px;border-radius:999px;
+    background:rgba(8,26,48,.55);backdrop-filter:blur(14px) saturate(1.4);
+    border:1px solid rgba(255,255,255,.28);box-shadow:0 10px 40px -12px rgba(0,0,0,.5);
+    transition:all .35s var(--ease);
+  }
+  header.nav.scrolled .nav-inner{background:rgba(8,26,48,.9)}
+  .brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:600}
+  .brand-mark{width:38px;height:38px;flex:0 0 38px;border-radius:11px;
+    background:linear-gradient(140deg,var(--aqua),var(--cyan));display:grid;place-items:center;
+    box-shadow:0 6px 18px -4px rgba(14,165,233,.7)}
+  .brand-text{display:flex;flex-direction:column;line-height:1.05}
+  .brand-text b{font-family:'Playfair Display',serif;font-size:1.04rem;color:#fff;letter-spacing:.01em}
+  .brand-text span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua)}
+  .nav-badge{display:inline-flex;align-items:center;gap:8px;color:#cfe7fa;font-size:.78rem;font-weight:600;
+    letter-spacing:.04em;padding:8px 15px;border-radius:999px;white-space:nowrap;
+    background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3)}
+  .nav-badge svg{color:var(--aqua);flex:0 0 auto}
+  .nav-links{display:flex;align-items:center;gap:6px}
+  .nav-links a{color:#dbe8f5;font-size:.92rem;font-weight:500;padding:9px 15px;border-radius:999px;transition:color .2s,background .2s}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+  .nav-cta{padding:11px 22px;font-size:.9rem}
+  .nav-toggle{display:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    width:46px;height:46px;border-radius:12px;cursor:pointer;color:#fff}
+  .mobile-menu{display:none}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;
+    background:
+      radial-gradient(120% 90% at 80% -10%,rgba(56,189,248,.35),transparent 55%),
+      radial-gradient(80% 70% at 8% 110%,rgba(20,184,166,.28),transparent 60%),
+      linear-gradient(160deg,var(--deep) 0%,var(--navy) 45%,var(--navy-2) 100%);
+    color:#fff;overflow:hidden;padding:140px 0 90px}
+  /* WebGL shader glow (ported from the Three.js shader-animation component, brand-tinted) */
+  .hero-shader{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;
+    mix-blend-mode:screen;opacity:.22;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 38%,transparent 60%);
+    mask-image:linear-gradient(90deg,#000 0%,#000 38%,transparent 60%)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center;position:relative;z-index:3}
+  .hero h1{color:#fff;font-size:clamp(2.6rem,6vw,4.6rem);font-weight:600}
+  .hero h1 .shine{
+    background:linear-gradient(100deg,#7dd3fc,#e0f5ff 40%,#7dd3fc 70%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:200% auto;animation:shine 6s linear infinite}
+  @keyframes shine{to{background-position:200% center}}
+  .hero p.lead{color:#bcd6ec;font-size:1.12rem;margin-top:22px;max-width:46ch}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .hero-trust{display:flex;gap:28px;margin-top:40px;flex-wrap:wrap}
+  .hero-trust .stat b{display:block;font-family:'Playfair Display',serif;font-size:1.9rem;color:#fff}
+  .hero-trust .stat span{font-size:.82rem;color:#9fc0dc;letter-spacing:.02em}
+  .hero-trust .divider{width:1px;background:rgba(255,255,255,.15)}
+
+  /* Hero visual: glass pool card */
+  .pool-card{position:relative;border-radius:26px;overflow:hidden;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.15);
+    aspect-ratio:4/5;background:linear-gradient(160deg,#0b3a5c,#0a2540)}
+  /* the SVG filter warps the real photo pixels so the water gently ripples */
+  .pool-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+    transform:scale(1.06);filter:url(#waterRipple)}
+  .pool-water{position:absolute;inset:0;
+    background:
+      radial-gradient(60% 50% at 30% 20%,rgba(125,211,252,.55),transparent 60%),
+      linear-gradient(160deg,#1f8fc4 0%,#0e6ba0 45%,#0a4d78 100%);
+  }
+  .pool-water::before,.pool-water::after{content:"";position:absolute;inset:-40%;
+    background:
+      repeating-linear-gradient(115deg,rgba(255,255,255,.10) 0 2px,transparent 2px 26px),
+      repeating-linear-gradient(65deg,rgba(255,255,255,.07) 0 2px,transparent 2px 32px);
+    animation:caustics 14s linear infinite;mix-blend-mode:screen}
+  .pool-water::after{animation-duration:22s;animation-direction:reverse;opacity:.6}
+  @keyframes caustics{from{transform:translate(0,0)}to{transform:translate(8%,10%)}}
+  .pool-shimmer{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);
+    background-size:300% 300%;animation:sweep 7s var(--ease) infinite}
+  @keyframes sweep{0%{background-position:120% 0}60%,100%{background-position:-60% 0}}
+  .pool-badge{position:absolute;left:18px;bottom:18px;right:18px;z-index:2;
+    background:rgba(8,26,48,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);
+    border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px}
+  .pool-badge .ring{width:46px;height:46px;border-radius:50%;flex:0 0 46px;display:grid;place-items:center;
+    background:linear-gradient(140deg,var(--aqua),var(--teal));color:#06243a}
+  .pool-badge b{display:block;font-family:'Inter',sans-serif;color:#fff;font-size:.96rem;font-weight:600}
+  .pool-badge span{font-size:.8rem;color:#a9c8e2}
+  .float-chip{position:absolute;z-index:4;background:rgba(255,255,255,.95);color:var(--navy);
+    border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px;
+    font-size:.86rem;font-weight:600;animation:floaty 5s ease-in-out infinite}
+  .float-chip svg{color:var(--teal)}
+  .chip-a{top:6%;left:-26px;animation-delay:-1s}
+  .chip-b{bottom:16%;right:-30px;animation-delay:-3s}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  /* wave divider */
+  .wave{position:absolute;bottom:-1px;left:0;width:100%;line-height:0;z-index:2}
+
+  /* ===== SERVICES ===== */
+  .section-head{max-width:640px;margin-bottom:54px}
+  .section-head h2{font-size:clamp(2rem,4.2vw,3rem);margin-top:14px}
+  .section-head p{margin-top:16px}
+  .center{margin-left:auto;margin-right:auto;text-align:center}
+  .center .eyebrow{justify-content:center}
+  .grid{display:grid;gap:22px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;
+    box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+    position:relative;overflow:hidden}
+  .card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:linear-gradient(160deg,rgba(56,189,248,.0),rgba(56,189,248,.08));opacity:0;transition:opacity .35s}
+  /* cursor spotlight */
+  .card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;opacity:0;transition:opacity .4s;
+    background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(56,189,248,.16),transparent 60%)}
+  .card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:#bfe0f5}
+  .card:hover::after,.card:hover::before{opacity:1}
+  .card>*{position:relative;z-index:2}
+  .card .ico{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;margin-bottom:20px;
+    background:linear-gradient(150deg,var(--sky),#d4eefb);color:var(--cyan);transition:transform .35s var(--ease)}
+  .card:hover .ico{transform:scale(1.08) rotate(-4deg)}
+  .card h3{font-size:1.32rem;margin-bottom:9px}
+  .card p{color:var(--muted);font-size:.96rem}
+  .card .more{display:inline-flex;align-items:center;gap:7px;margin-top:18px;color:var(--cyan);font-weight:600;font-size:.9rem}
+  .card .more svg{transition:transform .25s}
+  .card:hover .more svg{transform:translateX(4px)}
+
+  /* ===== WHY / PROCESS band ===== */
+  .band{background:linear-gradient(160deg,var(--deep),var(--navy));color:#fff;position:relative;overflow:hidden}
+  .band::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(70% 60% at 85% 10%,rgba(20,184,166,.25),transparent 55%),
+              radial-gradient(60% 60% at 10% 100%,rgba(56,189,248,.22),transparent 55%)}
+  .band .wrap{position:relative;z-index:2}
+  .band h2{color:#fff}
+  .band .lead{color:#aacbe6}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:54px;counter-reset:step}
+  .step{padding:28px 24px;border-radius:var(--radius);background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);position:relative;transition:background .3s,transform .3s var(--ease)}
+  .step:hover{background:rgba(255,255,255,.09);transform:translateY(-5px)}
+  .step .num{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--aqua);
+    width:50px;height:50px;border-radius:50%;display:grid;place-items:center;
+    border:1px solid rgba(56,189,248,.4);background:rgba(56,189,248,.08);margin-bottom:18px}
+  .step h4{color:#fff;font-size:1.18rem;margin-bottom:8px}
+  .step p{color:#9fc0dc;font-size:.92rem}
+
+  /* ===== FEATURE SPLIT ===== */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .feature-list{margin-top:30px;display:grid;gap:18px}
+  .feature-list .f{display:flex;gap:16px;align-items:flex-start}
+  .feature-list .f .fi{flex:0 0 44px;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+    background:linear-gradient(150deg,var(--sky),#d4eefb);color:var(--cyan)}
+  .feature-list .f b{display:block;color:var(--navy);font-size:1.02rem}
+  .feature-list .f p{color:var(--muted);font-size:.94rem}
+  .visual-stack{position:relative}
+  .visual-main{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/4;
+    background:linear-gradient(160deg,#1f8fc4,#0a4d78);position:relative}
+  .visual-main .pool-water{border-radius:24px}
+  .visual-quote{position:absolute;bottom:-26px;left:-26px;background:#fff;border-radius:18px;padding:22px 24px;
+    box-shadow:var(--shadow);max-width:280px;border:1px solid var(--line)}
+  .visual-quote .stars{color:var(--gold);display:flex;gap:2px;margin-bottom:8px}
+  .visual-quote p{font-size:.92rem;color:var(--ink);font-style:italic}
+  .visual-quote b{display:block;margin-top:10px;font-size:.85rem;color:var(--muted);font-style:normal}
+
+  /* ===== GALLERY ===== */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .gtile{border-radius:16px;overflow:hidden;aspect-ratio:1;position:relative;
+    background:linear-gradient(160deg,#1f8fc4,#0a4d78);cursor:pointer;box-shadow:var(--shadow-sm)}
+  .gtile:nth-child(1){aspect-ratio:auto;grid-row:span 2}
+  .gtile .pool-water{opacity:.95}
+  .gtile .glabel{position:absolute;left:0;right:0;bottom:0;padding:18px 16px 14px;color:#fff;font-weight:600;
+    font-size:.92rem;background:linear-gradient(to top,rgba(6,26,48,.85),transparent);z-index:2;
+    transform:translateY(6px);opacity:.92;transition:transform .3s,opacity .3s}
+  .gtile:hover .glabel{transform:translateY(0);opacity:1}
+  .gtile::after{content:"";position:absolute;inset:0;background:rgba(10,37,64,0);transition:background .3s;z-index:1}
+  .gtile:hover::after{background:rgba(10,37,64,.18)}
+
+  /* ===== TESTIMONIALS ===== */
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .t-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow-sm);
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .t-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .t-card .stars{color:var(--gold);display:flex;gap:3px;margin-bottom:14px}
+  .t-card blockquote{margin:0;color:var(--ink);font-size:1.02rem;line-height:1.6}
+  .t-card .who{display:flex;align-items:center;gap:13px;margin-top:20px}
+  .t-card .who .av{width:46px;height:46px;border-radius:50%;flex:0 0 46px;display:grid;place-items:center;
+    color:#fff;font-weight:600;background:linear-gradient(140deg,var(--cyan),var(--teal))}
+  .t-card .who b{display:block;color:var(--navy);font-size:.95rem}
+  .t-card .who span{font-size:.82rem;color:var(--muted)}
+
+  /* ===== QUOTE / CTA + FORM ===== */
+  .quote-band{background:linear-gradient(150deg,var(--navy) 0%,var(--deep) 100%);position:relative;overflow:hidden}
+  .quote-band::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(60% 80% at 100% 0%,rgba(56,189,248,.28),transparent 55%),
+              radial-gradient(50% 60% at 0% 100%,rgba(20,184,166,.22),transparent 55%)}
+  .quote-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;position:relative;z-index:2}
+  .quote-band h2{color:#fff;font-size:clamp(2rem,4vw,2.9rem)}
+  .quote-band .lead{color:#bcd6ec;margin-top:16px}
+  .contact-rows{margin-top:32px;display:grid;gap:16px}
+  .contact-rows a{display:flex;align-items:center;gap:14px;color:#dceaf6;font-size:1rem;width:fit-content}
+  .contact-rows a .ci{width:44px;height:44px;border-radius:12px;flex:0 0 44px;display:grid;place-items:center;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:var(--aqua);transition:all .25s}
+  .contact-rows a:hover .ci{background:var(--aqua);color:var(--navy)}
+  .contact-rows a span small{display:block;color:#8fb2cf;font-size:.78rem}
+
+  form.quote{background:rgba(255,255,255,.97);border-radius:22px;padding:32px;box-shadow:var(--shadow);
+    border:1px solid rgba(255,255,255,.5)}
+  form.quote h3{font-size:1.4rem;margin-bottom:6px}
+  form.quote .fsub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:7px}
+  .field input,.field select,.field textarea{width:100%;padding:13px 15px;border:1.5px solid var(--line);
+    border-radius:12px;font:inherit;font-size:.95rem;color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--cyan);
+    box-shadow:0 0 0 4px rgba(14,165,233,.14)}
+  .field textarea{resize:vertical;min-height:92px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form.quote .btn{width:100%;margin-top:6px}
+  .form-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:14px}
+
+  /* ===== SERVICE AREA ===== */
+  .areas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .areas span{padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--cyan);font-size:.86rem;font-weight:600;
+    border:1px solid #cfe9fa}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--deep);color:#9fc0dc;padding:70px 0 28px}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;padding-bottom:44px;
+    border-bottom:1px solid rgba(255,255,255,.1)}
+  footer .brand b{color:#fff}
+  footer p{font-size:.92rem;margin-top:16px;max-width:34ch}
+  footer h5{color:#fff;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 18px;font-family:'Inter',sans-serif;font-weight:600}
+  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+  footer ul a{font-size:.92rem;transition:color .2s}
+  footer ul a:hover{color:var(--aqua)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    padding-top:24px;font-size:.84rem;color:#6f93b3}
+  .foot-bottom .socials{display:flex;gap:10px}
+  .foot-bottom .socials a{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#bcd6ec;transition:all .25s}
+  .foot-bottom .socials a:hover{background:var(--aqua);color:var(--navy);transform:translateY(-3px)}
+
+  /* ===== REVEAL ANIMATION ===== */
+  .reveal{opacity:0;transform:translateY(26px) scale(.985);filter:blur(8px);will-change:opacity,transform,filter;
+    transition:opacity .9s var(--ease-out),transform .9s var(--ease-out),filter .9s var(--ease-out)}
+  .reveal.in{opacity:1;transform:none;filter:blur(0)}
+  .reveal.d1{transition-delay:.09s}.reveal.d2{transition-delay:.18s}
+  .reveal.d3{transition-delay:.27s}.reveal.d4{transition-delay:.36s}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:1040px){ .nav-badge{display:none} }
+  @media(max-width:980px){
+    .hero-grid,.split,.quote-grid{grid-template-columns:1fr;gap:44px}
+    .hero{min-height:auto;padding:130px 0 80px}
+    .grid-3,.t-grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gtile:nth-child(1){grid-row:span 1;aspect-ratio:1}
+    .hero-visual{max-width:440px;margin:0 auto}
+    .visual-quote{position:static;margin-top:18px;max-width:none}
+  }
+  @media(max-width:680px){
+    .nav-links{display:none}
+    .nav-toggle{display:grid;place-items:center}
+    header.nav.open .mobile-menu{display:block}
+    .mobile-menu{position:absolute;top:72px;left:0;right:0;background:rgba(8,26,48,.97);
+      backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:14px}
+    .mobile-menu a{display:block;color:#dbe8f5;padding:13px 16px;border-radius:12px;font-weight:500}
+    .mobile-menu a:hover{background:rgba(255,255,255,.08)}
+    .mobile-menu .btn{width:100%;margin-top:8px}
+    .grid-3,.t-grid,.steps,.gallery,.row2{grid-template-columns:1fr}
+    .hero-trust{gap:18px}
+    .hero-trust .divider{display:none}
+    .float-chip{display:none}
+    .visual-quote{display:none}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none;filter:none;transition:none}
+    .pool-card{transform:none!important}
+    .pool-photo{filter:none!important;transform:scale(1.06)}
+    .progress{display:none}
+    .pool-shimmer,.pool-water::before,.pool-water::after,.hero h1 .shine{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Rob's Pool and Spa home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06243a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/><path d="M2 17c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/><path d="M2 7c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/></svg>
+      </span>
+      <span class="brand-text"><b>Rob's Pool &amp; Spa</b><span>Corona, California</span></span>
+    </a>
+    <span class="nav-badge" aria-label="Licensed and insured">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/></svg>
+      Licensed &amp; Insured
+    </span>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#quote" class="btn nav-cta">Get a Free Quote</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#process">How It Works</a>
+    <a href="#why">Why Us</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#quote" class="btn">Get a Free Quote</a>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- Hidden SVG filter: animated turbulence displaces the hero photo's pixels so the water looks alive -->
+<svg class="visually-hidden" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <filter id="waterRipple" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.011 0.016" numOctaves="2" seed="7" result="noise">
+      <animate attributeName="baseFrequency" dur="10s" repeatCount="indefinite"
+               values="0.012 0.015; 0.015 0.012; 0.012 0.015"
+               calcMode="linear" keyTimes="0;0.5;1"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="14"
+                       xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <canvas class="hero-shader" id="heroShader" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal">Corona's Premium Pool &amp; Spa Care</span>
+        <h1 class="reveal d1">Crystal-clear water,<br><span class="shine">effortlessly maintained.</span></h1>
+        <p class="lead reveal d2">White-glove weekly service, expert repairs, and meticulous detailing — so your backyard always looks resort-ready. Licensed, insured, and trusted by Corona families since day one.</p>
+        <div class="hero-cta reveal d3">
+          <a href="#quote" class="btn">Get a Free Quote
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="tel:+19515550123" class="btn btn--ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (951) 555-0123
+          </a>
+        </div>
+        <div class="hero-trust reveal d4">
+          <div class="stat"><b data-count="500" data-suffix="+">500+</b><span>Pools serviced</span></div>
+          <div class="divider"></div>
+          <div class="stat"><b data-count="4.9" data-decimals="1" data-suffix="★">4.9★</b><span>Average rating</span></div>
+          <div class="divider"></div>
+          <div class="stat"><b data-count="100" data-suffix="%">100%</b><span>Satisfaction promise</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal d2">
+        <div class="pool-card">
+          <img class="pool-photo" src="pool1.jpg" alt="Crystal-clear pool steps leading into sparkling blue water" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 110" preserveAspectRatio="none" width="100%" height="110"><path fill="#ffffff" d="M0,64 C240,110 480,20 720,48 C960,76 1200,118 1440,72 L1440,110 L0,110 Z"></path></svg>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2>Complete pool &amp; spa care, done right.</h2>
+      <p class="lead">From routine maintenance to full equipment overhauls, every service is performed by trained technicians who treat your backyard like their own.</p>
+    </div>
+    <div class="grid grid-3">
+
+      <article class="card reveal">
+        <span class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/><path d="M2 17c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/><path d="M2 7c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/></svg></span>
+        <h3>Weekly Pool Cleaning</h3>
+        <p>Skimming, brushing, vacuuming, basket emptying, and precision chemical balancing — a spotless pool every single week, no effort from you.</p>      </article>
+
+      <article class="card reveal d1">
+        <span class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M2 14h20"/><path d="M9 14V9a3 3 0 0 1 6 0v5"/><path d="M7 18c1 1 2 1 3 0M14 18c1 1 2 1 3 0"/></svg></span>
+        <h3>Spa &amp; Hot Tub Care</h3>
+        <p>Specialized spa servicing — draining, deep cleaning, jet checks, and balanced sanitation so your hot tub stays warm, clear, and ready to relax in.</p>      </article>
+
+      <article class="card reveal d2">
+        <span class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.4-2.4z"/></svg></span>
+        <h3>Equipment Repair &amp; Install</h3>
+        <p>Pumps, filters, heaters, salt systems, and automation — diagnosed, repaired, or upgraded by techs who know every major brand inside and out.</p>      </article>
+
+      <article class="card reveal">
+        <span class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 22a7 7 0 0 0 7-7c0-3-3-7-7-11C8 8 5 12 5 15a7 7 0 0 0 7 7z"/></svg></span>
+        <h3>Green-to-Clean Recovery</h3>
+        <p>Algae takeover? We rescue neglected and green pools with intensive treatment, filtration, and one-time deep cleans that restore sparkle fast.</p>      </article>
+
+      <article class="card reveal d1">
+        <span class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18M15 3v18M3 15h18"/></svg></span>
+        <h3>Tile &amp; Waterline Detailing</h3>
+        <p>We remove stubborn calcium scale and waterline stains, restoring your tile to a bright, like-new finish without damaging the surface.</p>      </article>
+
+      <article class="card reveal d2">
+        <span class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg></span>
+        <h3>Water Testing &amp; Balancing</h3>
+        <p>Lab-grade testing on every visit keeps pH, chlorine, alkalinity, and calcium dialed in — protecting your surfaces, equipment, and swimmers.</p>      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS BAND ===== -->
+<section class="section band" id="process">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">How It Works</span>
+      <h2>Four simple steps to a flawless pool.</h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">Getting started is effortless. We handle the rest — on schedule, every time.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">1</div><h4>Free Quote</h4><p>Tell us about your pool or spa. We'll assess your needs and send a transparent, no-pressure quote within 24 hours.</p></div>
+      <div class="step reveal d1"><div class="num">2</div><h4>Custom Plan</h4><p>We build a service plan around your pool's size, equipment, and usage — weekly, bi-weekly, or one-time.</p></div>
+      <div class="step reveal d2"><div class="num">3</div><h4>Pro Service</h4><p>Your dedicated technician arrives on schedule, performs a full service, and tests your water every visit.</p></div>
+      <div class="step reveal d3"><div class="num">4</div><h4>Peace of Mind</h4><p>You get photo updates and a clean, balanced pool — guaranteed. Just dive in and enjoy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US / FEATURE SPLIT ===== -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">Why Rob's Pool &amp; Spa</span>
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem);margin-top:14px">A locally-owned team that genuinely cares.</h2>
+        <p class="lead" style="margin-top:16px">We're not a faceless franchise. We're your Corona neighbors, and our reputation rides on every pool we touch. That's why we show up on time, communicate clearly, and never cut corners.</p>
+        <div class="feature-list">
+          <div class="f">
+            <span class="fi" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/></svg></span>
+            <div><b>Licensed, insured &amp; bonded</b><p>Fully covered, fully professional — your property is always protected.</p></div>
+          </div>
+          <div class="f">
+            <span class="fi" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+            <div><b>Reliable, on-time service</b><p>Consistent same-day-of-week visits you can actually set your calendar by.</p></div>
+          </div>
+          <div class="f">
+            <span class="fi" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <div><b>Backyard-proud results</b><p>Detail-obsessed technicians who leave your pool genuinely resort-ready.</p></div>
+          </div>
+          <div class="f">
+            <span class="fi" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+            <div><b>100% satisfaction promise</b><p>Not happy with a visit? We'll make it right — no questions, no charge.</p></div>
+          </div>
+        </div>
+        <a href="#quote" class="btn btn--outline" style="margin-top:30px">Start with a free quote</a>
+      </div>
+
+      <div class="visual-stack reveal d1">
+        <div class="visual-main">
+          <div class="pool-water"></div>
+          <div class="pool-shimmer"></div>
+        </div>
+        <div class="visual-quote">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+          </div>
+          <p>"Our pool has never looked better. Rob's team is punctual, friendly, and worth every penny."</p>
+          <b>— Maria G., Corona</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Our Work</span>
+      <h2>Backyards we've transformed.</h2>
+    </div>
+    <div class="gallery reveal d1">
+      <div class="gtile"><div class="pool-water"></div><div class="pool-shimmer"></div><span class="glabel">Resort-style weekly maintenance</span></div>
+      <div class="gtile"><div class="pool-water"></div><span class="glabel">Spa restoration</span></div>
+      <div class="gtile"><div class="pool-water"></div><span class="glabel">Tile &amp; waterline detailing</span></div>
+      <div class="gtile"><div class="pool-water"></div><span class="glabel">Green-to-clean recovery</span></div>
+      <div class="gtile"><div class="pool-water"></div><span class="glabel">Equipment upgrade</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section band" id="reviews" style="background:linear-gradient(160deg,#08233f,#0a2540)">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Loved by Corona Homeowners</span>
+      <h2 style="color:#fff">Don't just take our word for it.</h2>
+    </div>
+    <div class="t-grid">
+
+      <div class="t-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        </div>
+        <blockquote>"Switched to Rob's after years of unreliable service. The difference is night and day — water's always perfect and they actually communicate."</blockquote>
+        <div class="who"><span class="av">DK</span><div><b>David K.</b><span>Sierra Del Oro, Corona</span></div></div>
+      </div>
+
+      <div class="t-card reveal d1">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        </div>
+        <blockquote>"They rescued our green pool before a big party and it looked incredible. Fast, professional, and fairly priced. Highly recommend."</blockquote>
+        <div class="who"><span class="av">JL</span><div><b>Jenna L.</b><span>Eagle Glen, Corona</span></div></div>
+      </div>
+
+      <div class="t-card reveal d2">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        </div>
+        <blockquote>"Our spa heater died mid-winter and Rob's had it fixed in two days. Honest pricing and they explained everything. Lifelong customer now."</blockquote>
+        <div class="who"><span class="av">RT</span><div><b>Robert T.</b><span>Coronita, Corona</span></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTE / CONTACT ===== -->
+<section class="section quote-band" id="quote">
+  <div class="wrap">
+    <div class="quote-grid">
+      <div class="reveal">
+        <span class="eyebrow">Get Started</span>
+        <h2>Request your free, no-obligation quote.</h2>
+        <p class="lead">Tell us a little about your pool or spa and we'll get back to you within 24 hours with a transparent quote tailored to your backyard.</p>
+
+        <div class="contact-rows">
+          <a href="tel:+19515550123">
+            <span class="ci" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span>(951) 555-0123<small>Call or text — we answer fast</small></span>
+          </a>
+          <a href="mailto:hello@robspoolandspa.com">
+            <span class="ci" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <span>hello@robspoolandspa.com<small>Email us anytime</small></span>
+          </a>
+          <a href="#services" onclick="return false" style="cursor:default">
+            <span class="ci" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span>Serving Corona &amp; Riverside County<small>Mon–Sat, 7am–6pm</small></span>
+          </a>
+        </div>
+
+        <div class="areas" aria-label="Service areas">
+          <span>Corona</span><span>Eagle Glen</span><span>Sierra Del Oro</span><span>Coronita</span><span>Norco</span><span>Riverside</span>
+        </div>
+      </div>
+
+      <form class="quote reveal d1" id="quoteForm">
+        <h3>Get a Free Quote</h3>
+        <p class="fsub">No spam, no pressure — just a fast, friendly response.</p>
+        <div class="row2">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(951) 555-0123" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="jane@example.com" required />
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="service">Service needed</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Choose one…</option>
+              <option>Weekly pool cleaning</option>
+              <option>Spa &amp; hot tub care</option>
+              <option>Equipment repair / install</option>
+              <option>Green-to-clean recovery</option>
+              <option>Tile &amp; waterline detailing</option>
+              <option>Not sure — need advice</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="zip">ZIP code</label>
+            <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="92879" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Tell us about your pool (optional)</label>
+          <textarea id="message" name="message" placeholder="Pool size, current condition, anything we should know…"></textarea>
+        </div>
+        <button type="submit" class="btn">
+          Send My Free Quote Request
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+        <p class="form-note">Opens your email app pre-filled — or call us at (951) 555-0123.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="brand" style="color:#fff">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06243a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/><path d="M2 17c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/><path d="M2 7c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1"/></svg>
+          </span>
+          <span class="brand-text"><b>Rob's Pool &amp; Spa</b><span>Corona, California</span></span>
+        </a>
+        <p>Premium, locally-owned pool and spa care for Corona and the greater Riverside County area. Licensed, insured, and obsessed with crystal-clear water.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Weekly Cleaning</a></li>
+          <li><a href="#services">Spa &amp; Hot Tub Care</a></li>
+          <li><a href="#services">Equipment Repair</a></li>
+          <li><a href="#services">Green-to-Clean</a></li>
+          <li><a href="#services">Tile Detailing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#quote">Free Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+19515550123">(951) 555-0123</a></li>
+          <li><a href="mailto:hello@robspoolandspa.com">hello@robspoolandspa.com</a></li>
+          <li><a href="#quote">Corona, CA 92879</a></li>
+          <li><a href="#quote">Mon–Sat · 7am–6pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Rob's Pool &amp; Spa. All rights reserved. · Licensed &amp; Insured.</span>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Yelp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2v9l-4-2c-1-.5-1.5.3-1 1.3l2.5 4.7c.5 1 1.3.6 1.8-.2L13 11V2c0-1-2-1-2 0zm-7 9.5c-1 .3-1 1.3 0 1.8l4.5 1.5c1 .3 1.4-.7.8-1.4L6.5 9.8c-.7-.8-1.6-.3-1.5.7zm6 5.7l-2.7 4c-.6.8.2 1.7 1.2 1.3l4.3-1.5c1-.3.8-1.5-.2-1.7l-1.4-.3c-.5-.1-1-.1-1.2-.3zm6.5-1.4c-1-.4-1.6.6-1 1.4l2.7 3.7c.6.8 1.6.3 1.6-.7l.2-4.5c0-1-1-1.2-1.8-.6zm.5-4l4.5-2.8c.8-.6.3-1.7-.7-1.6l-4.5.4c-1 .1-1.1 1.3-.3 1.7z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nav scroll state + scroll progress
+  const nav = document.getElementById('nav');
+  const progress = document.getElementById('progress');
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      nav.classList.toggle('scrolled', window.scrollY > 24);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+      ticking = false;
+    });
+  };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(a =>
+    a.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', false); })
+  );
+
+  // Scroll reveal
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(r => r.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(r => io.observe(r));
+  }
+
+  // Count-up stats (runs once when hero stats scroll into view)
+  if (!reduce && 'IntersectionObserver' in window) {
+    const counters = document.querySelectorAll('[data-count]');
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, target = parseFloat(el.dataset.count),
+              dec = parseInt(el.dataset.decimals || '0', 10), suffix = el.dataset.suffix || '';
+        const start = performance.now(), dur = 1400;
+        const tick = (now) => {
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = (target * eased).toFixed(dec) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toFixed(dec) + suffix;
+        };
+        requestAnimationFrame(tick);
+        cio.unobserve(el);
+      });
+    }, {threshold:0.6});
+    counters.forEach(c => cio.observe(c));
+  }
+
+  const finePointer = window.matchMedia('(pointer:fine)').matches;
+
+  // Magnetic primary CTAs + card cursor-spotlight (fine pointer, motion-allowed only)
+  if (finePointer && !reduce) {
+    document.querySelectorAll('.btn:not(.btn--ghost):not(.btn--outline)').forEach(b => {
+      b.addEventListener('mousemove', (ev) => {
+        const r = b.getBoundingClientRect();
+        const x = (ev.clientX - r.left - r.width / 2) * 0.25;
+        const y = (ev.clientY - r.top - r.height / 2) * 0.35;
+        b.style.transform = 'translate(' + x.toFixed(1) + 'px,' + (y - 2).toFixed(1) + 'px)';
+      });
+      b.addEventListener('mouseleave', () => { b.style.transform = ''; });
+    });
+    document.querySelectorAll('.card').forEach(c => {
+      c.addEventListener('mousemove', (ev) => {
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  // Hero WebGL shader glow (raw WebGL port of the Three.js shader-animation, brand-tinted)
+  (function initHeroShader(){
+    const canvas = document.getElementById('heroShader');
+    if (!canvas) return;
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) return; // graceful: hero keeps its gradient background
+
+    const vsrc = 'attribute vec2 position;void main(){gl_Position=vec4(position,0.0,1.0);}';
+    const fsrc =
+      'precision highp float;' +
+      'uniform vec2 resolution;uniform float time;' +
+      'void main(void){' +
+        'vec2 uv=(gl_FragCoord.xy*2.0-resolution.xy)/min(resolution.x,resolution.y);' +
+        'uv.x+=0.55;' + // shift the ring origin toward the left, behind the headline
+        'float t=time*0.05;float lineWidth=0.004;' +
+        'vec3 color=vec3(0.0);' +
+        'for(int j=0;j<3;j++){' +
+          'for(int i=0;i<5;i++){' +
+            'color[j]+=lineWidth*float(i*i)/abs(fract(t-0.01*float(j)+float(i)*0.01)*5.0-length(uv)+mod(uv.x+uv.y,0.2));' +
+          '}' +
+        '}' +
+        // remap pure RGB rings into the brand palette (aqua / teal / sky)
+        'vec3 tinted=color.r*vec3(0.22,0.74,0.97)+color.g*vec3(0.08,0.72,0.65)+color.b*vec3(0.55,0.85,1.0);' +
+        'gl_FragColor=vec4(tinted,1.0);' +
+      '}';
+
+    const compile = (type, src) => {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src); gl.compileShader(s);
+      return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+    };
+    const vs = compile(gl.VERTEX_SHADER, vsrc), fs = compile(gl.FRAGMENT_SHADER, fsrc);
+    if (!vs || !fs) return;
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
+    const pos = gl.getAttribLocation(prog, 'position');
+    gl.enableVertexAttribArray(pos);
+    gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+
+    const uRes = gl.getUniformLocation(prog, 'resolution');
+    const uTime = gl.getUniformLocation(prog, 'time');
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+
+    const resize = () => {
+      canvas.width = Math.floor(canvas.clientWidth * dpr);
+      canvas.height = Math.floor(canvas.clientHeight * dpr);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(uRes, canvas.width, canvas.height);
+    };
+    resize();
+    window.addEventListener('resize', resize, {passive:true});
+
+    let time = 1.0, raf = null, running = false;
+    const draw = () => { time += 0.05; gl.uniform1f(uTime, time); gl.drawArrays(gl.TRIANGLES, 0, 6); };
+    const loop = () => { if (!running) return; draw(); raf = requestAnimationFrame(loop); };
+
+    if (reduce) {
+      draw(); // single static frame, no animation
+    } else {
+      running = true; loop();
+      // pause the render loop when the hero is off-screen
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting && !running) { running = true; loop(); }
+            else if (!e.isIntersecting && running) { running = false; if (raf) cancelAnimationFrame(raf); }
+          });
+        }, {threshold:0}).observe(document.querySelector('.hero'));
+      }
+    }
+  })();
+
+  // Quote form -> mailto fallback
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const f = e.target;
+    const get = id => (f.querySelector('#'+id)?.value || '').trim();
+    const name = get('name'), phone = get('phone'), email = get('email'),
+          service = get('service'), zip = get('zip'), message = get('message');
+    const subject = encodeURIComponent('Free Quote Request — ' + (service || 'Pool Service') + (name ? ' (' + name + ')' : ''));
+    const body = encodeURIComponent(
+      'Hi Rob,\n\nI\'d like a free quote.\n\n' +
+      'Name: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email +
+      '\nService: ' + service + '\nZIP: ' + zip + '\n\nDetails:\n' + (message || '(none)') +
+      '\n\nThanks!'
+    );
+    window.location.href = 'mailto:hello@robspoolandspa.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+</body>
+</html>
